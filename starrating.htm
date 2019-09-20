@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            star rating
+        </title>
+        <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="https://kit.fontawesome.com/a6185a6cd4.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script>
+            $(document).ready(function(){
+                 
+                 $("li").mouseover(function(){
+                   
+                    var current=$(this);
+                    $("li").each(function(index){
+                        var s=$(this);
+                        s.addClass("hovered"); 
+                      if(index==current.index())
+                       {
+                           return false;
+                       }
+                    });
+                });
+                $("li").mouseleave(function(){ 
+                    $("li").removeClass("hovered");
+                }); 
+                $("li").click(function(){
+                    $("li").removeClass("clicked");
+                    $(".hovered").addClass("clicked");
+                    $(".msg").html("Thanks!you have rated this "+$(".clicked").length+" stars.");
+                });
+            });
+        </script>
+<style>
+.container{
+    margin-top: 150px;
+    margin-left: 700px;
+    margin-right: 250px;
+}
+ul{
+    list-style-type: none;
+    padding: 0px;
+    margin: 0px;
+   
+}
+li{
+    display:inline-block;
+    font-size: 25px;
+    padding: 5px;
+    margin-left: 00px;
+    color:#ccc;
+}
+.msg{
+    font-size: 25px;
+    
+}
+
+.hovered{
+    color:yellow;
+
+}
+.clicked{
+    color:orange;
+}
+</style>
+
+
+    </head>
+    <body>
+        <div class="container">
+            <ul>
+                <li><i class="fa fa-star fa-fw"></i></li>
+                <li><i class="fa fa-star fa-fw"></i></li>
+                <li><i class="fa fa-star fa-fw"></i></li>
+                <li><i class="fa fa-star fa-fw"></i></li>
+                <li><i class="fa fa-star fa-fw"></i></li>
+            </ul>
+            <div class="msg"><h2>please rate us...!</h2></div>
+        </div>
+    </body>
+</html>
